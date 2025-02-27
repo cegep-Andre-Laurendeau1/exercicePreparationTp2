@@ -1,6 +1,6 @@
 ```mermaid
-
 classDiagram
+direction LR
     class Client {
         -id: Long
         -name: String
@@ -24,12 +24,17 @@ classDiagram
     class Product {
         -id: Long
         -description: String
-        -
+    }
+    
+    class Cart {
+        -id: Long
     }
 
 
     Client "1" -- "*" Order : has
     Order "1" -- "*" OrderDetail : contains
     OrderDetail "*" -- "1" Product : references
-    
+    Client "1" -- "1" Cart : has
+    Cart "*" -- "*" Product : references
+     
 ```
